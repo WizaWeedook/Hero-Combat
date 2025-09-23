@@ -15,6 +15,11 @@ public class MainMenuUI : MonoBehaviour {
         SceneManager.LoadScene("CaracterScene"); 
     }
     public void OnSalirClicked() {
-        Application.Quit();
+        
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false; // Detiene el Play en el editor
+#else
+            Application.Quit(); // Cierra el ejecutable
+#endif
     }
 }

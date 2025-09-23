@@ -53,7 +53,6 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-
     #region Métodos Jugador
     public void GuardarJugador(PlayerDB player)
     {
@@ -66,20 +65,26 @@ public class DatabaseManager : MonoBehaviour
                  .Where(p => p.Nombre == nombre)
                  .FirstOrDefault();
     }
+
+    public bool TieneJugadorGuardado()
+    {
+        return db.Table<PlayerDB>().Any();
+    }
+
+    public string ObtenerNombreJugadorGuardado()
+    {
+        var jugador = db.Table<PlayerDB>().FirstOrDefault();
+        return jugador != null ? jugador.Nombre : null;
+    }
+
+    public void BorrarJugador(string jugadorID)
+    {
+        var jugador = CargarJugador(jugadorID);
+        if (jugador != null)
+            db.Delete(jugador);
+
+    } }
     #endregion
 
-    #region Métodos Armas, Hechizos, Pasivas, Mascotas
-    public void GuardarArma(WeaponDB weapon) => db.InsertOrReplace(weapon);
-    public WeaponDB CargarArma(int id) => db.Find<WeaponDB>(id);
-
-    public void GuardarHechizo(SpellDB spell) => db.InsertOrReplace(spell);
-    public SpellDB CargarHechizo(int id) => db.Find<SpellDB>(id);
-
-    public void GuardarPasiva(PassiveDB passive) => db.InsertOrReplace(passive);
-    public PassiveDB CargarPasiva(int id) => db.Find<PassiveDB>(id);
-
-    public void GuardarMascota(PetDB pet) => db.InsertOrReplace(pet);
-    public PetDB CargarMascota(int id) => db.Find<PetDB>(id);
+    #region Métodos Armas, Hechizos
     #endregion
-}
-

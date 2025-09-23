@@ -2,35 +2,46 @@ using UnityEngine;
 
 public class LevelUpPanel : MonoBehaviour
 {
-    private PlayerData jugador;
+    public CharacterUI characterUI; // arrastra el objeto CharacterUI en el inspector
 
-    public void Mostrar(PlayerData player)
+    public void Mostrar()
     {
-        jugador = player;
         gameObject.SetActive(true);
     }
 
-    public void ElegirFuerza()        { jugador.MejorarEstadistica(0); Cerrar(); }
-    public void ElegirVelocidad()     { jugador.MejorarEstadistica(1); Cerrar(); }
-    public void ElegirInteligencia()  { jugador.MejorarEstadistica(2); Cerrar(); }
-    public void ElegirDestreza()      { jugador.MejorarEstadistica(3); Cerrar(); }
-    public void ElegirResistencia()   { jugador.MejorarEstadistica(4); Cerrar(); }
-    public void ElegirVidaMaxima()    { jugador.MejorarEstadistica(5); Cerrar(); }
     public void ElegirAleatorio()
     {
-        int stat = Random.Range(0, 6); // 0 a 5, cubre todas las estadísticas
-        jugador.MejorarEstadistica(stat);
-        Cerrar();
+        PlayerData jugador = GameManager.Instance.player;
+
+        if (jugador != null)
+        {
+            int stat = Random.Range(0, 6); // 0 a 5
+            jugador.MejorarEstadistica(stat);
+
+            // Guardar progreso en DB
+            DatabaseManager.Instance.GuardarJugador(jugador.ToPlayerDB());
+
+            // Refrescar stats en la UI
+            if (characterUI != null)
+                characterUI.ActualizarUI();
+
+            // Cerrar panel
+            jugador.mejoraPendiente = false;
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("No se encontró jugador en GameManager.");
+        }
+        
     }
-    
-    private void Cerrar()
+
+    public void Cerrar()
     {
-        jugador.mejoraPendiente = false;
+        PlayerData jugador = GameManager.Instance.player;
+        if (jugador != null)
+            jugador.mejoraPendiente = false;
+
         gameObject.SetActive(false);
-        jugador.ReiniciarStats();
-        // Guarda el nuevo estado si quieres
-        DatabaseManager dbm = FindObjectOfType<DatabaseManager>();
-        if (dbm != null)
-            dbm.GuardarJugador(jugador.ToPlayerDB());
     }
 }

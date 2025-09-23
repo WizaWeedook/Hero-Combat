@@ -226,7 +226,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -26}
+  m_AnchoredPosition: {x: 0, y: 51}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &160875377
@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 430398086}
   - component: {fileID: 430398085}
   m_Layer: 5
-  m_Name: Entrenar
+  m_Name: BorrarPj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -359,7 +359,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 38.49164}
+  m_AnchoredPosition: {x: 0, y: -32}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &430398085
@@ -406,9 +406,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 622383621}
-        m_TargetAssemblyTypeName: MainMenuUI, Assembly-CSharp
-        m_MethodName: OnEntrenamientoClicked
+      - m_Target: {fileID: 705569818}
+        m_TargetAssemblyTypeName: MainMenuActions, Assembly-CSharp
+        m_MethodName: BorrarJugador
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -710,6 +710,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &705569817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 705569819}
+  - component: {fileID: 705569818}
+  m_Layer: 0
+  m_Name: MainMenuActions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &705569818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705569817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4172b3bc0f6b2ac48b8e9a70cfd94419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelNombreJugador: {fileID: 966372432}
+--- !u!4 &705569819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705569817}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 551.0278, y: 357.2756, z: -1.4826359}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &915497216
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,7 +791,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.4635715}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -84}
+  m_AnchoredPosition: {x: 0, y: -102}
   m_SizeDelta: {x: 160, y: 11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &915497218
@@ -843,6 +888,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915497216}
   m_CullTransparentMesh: 1
+--- !u!1 &966372431 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3012989127528291235, guid: 45c5ec1f543753c4d8c123d1d5a82cfb, type: 3}
+  m_PrefabInstance: {fileID: 5069132071728782838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &966372432 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2904502415300896684, guid: 45c5ec1f543753c4d8c123d1d5a82cfb, type: 3}
+  m_PrefabInstance: {fileID: 5069132071728782838}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966372431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c596830c65f93c54e9fe18258e9444af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1062409037
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,6 +996,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1184913955 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8761377425008761201, guid: 45c5ec1f543753c4d8c123d1d5a82cfb, type: 3}
+  m_PrefabInstance: {fileID: 5069132071728782838}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1232404338
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,7 +1043,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 103.7}
+  m_AnchoredPosition: {x: 0, y: 127}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1232404340
@@ -1068,6 +1140,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232404338}
   m_CullTransparentMesh: 1
+--- !u!114 &1273042138 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8474094353894367704, guid: 45c5ec1f543753c4d8c123d1d5a82cfb, type: 3}
+  m_PrefabInstance: {fileID: 5069132071728782838}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1817595636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,7 +1433,7 @@ GameObject:
   - component: {fileID: 2060201775}
   - component: {fileID: 2060201774}
   m_Layer: 5
-  m_Name: BtnEntrenar
+  m_Name: Btnborrarpj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1395,7 +1478,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Entrenar
+  m_text: 'Borrar Avance
 
 '
   m_isRightToLeft: 0
@@ -1494,6 +1577,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2904502415300896684, guid: 45c5ec1f543753c4d8c123d1d5a82cfb, type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 966372431}
+    - target: {fileID: 2904502415300896684, guid: 45c5ec1f543753c4d8c123d1d5a82cfb, type: 3}
+      propertyPath: inputField
+      value: 
+      objectReference: {fileID: 1273042138}
+    - target: {fileID: 2904502415300896684, guid: 45c5ec1f543753c4d8c123d1d5a82cfb, type: 3}
+      propertyPath: botonAceptar
+      value: 
+      objectReference: {fileID: 1184913955}
+    - target: {fileID: 2996822562238943697, guid: 45c5ec1f543753c4d8c123d1d5a82cfb, type: 3}
+      propertyPath: nombreJugadorPanel
+      value: 
+      objectReference: {fileID: 966372432}
     - target: {fileID: 3012989127528291235, guid: 45c5ec1f543753c4d8c123d1d5a82cfb, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1542,6 +1641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'DataBaseManager '
       objectReference: {fileID: 0}
+    - target: {fileID: 8761377425008761201, guid: 45c5ec1f543753c4d8c123d1d5a82cfb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AceptarNombre
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1555,3 +1658,4 @@ SceneRoots:
   - {fileID: 1062409040}
   - {fileID: 622383625}
   - {fileID: 62125924}
+  - {fileID: 705569819}

@@ -10,6 +10,10 @@ public class CombatManager : MonoBehaviour
     private bool combateTerminado = false;
     private Coroutine combateCoroutine;
 
+    PlayerData jugador = GameManager.Instance.player;
+    PlayerData enemigo = new PlayerData("Enemigo"); // stats fijos o generados
+
+
     void Start() {
         textoLog.text = "Comienza el combate...\n";
         // Reiniciar stats temporales al iniciar combate

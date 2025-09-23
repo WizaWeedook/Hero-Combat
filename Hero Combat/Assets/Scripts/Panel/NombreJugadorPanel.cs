@@ -1,18 +1,34 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class NombreJugadorPanel : MonoBehaviour
 {
-    public TMP_InputField inputNombre;
+    public TMP_InputField inputField;
+    public Button botonAceptar;
 
-    public void CrearJugador()
+    void Start()
     {
-        string nombre = inputNombre.text.Trim();
+        gameObject.SetActive(false); // Panel oculto al inicio
+        botonAceptar.onClick.AddListener(AceptarNombre);
+    }
+
+    // Mostrar el panel para ingresar nombre
+    public void Mostrar()
+    {
+        inputField.text = ""; // Limpia el input cada vez que se muestra
+        gameObject.SetActive(true);
+        inputField.Select();
+        inputField.ActivateInputField();
+    }
+
+    void AceptarNombre()
+    {
+        string nombre = inputField.text.Trim();
         if (!string.IsNullOrEmpty(nombre))
         {
-            GameManager.Instance.CrearNuevoJugador();
-            gameObject.SetActive(false); // Oculta el panel
-            // Aquí puedes cargar la siguiente escena o actualizar la UI
+            GameManager.Instance.CrearNuevoJugador(nombre);
+            gameObject.SetActive(false);
         }
     }
 }
